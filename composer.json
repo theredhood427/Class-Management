@@ -1,0 +1,19 @@
+{
+    "name": "user/pdc10_classes",
+    "autoload": {
+        "psr-4": {
+            "Models\\": "models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RusselleBangsil",
+            "email": "bangsil.ronrusselle@auf.edu.ph"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.4",
+        "mustache/mustache": "~2.5"
+    }
+
+}
