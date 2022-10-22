@@ -2,7 +2,7 @@
 
 use Dotenv\Dotenv as Env;
 
-$env = Env::createImmutable(DIR . '/../'); // move up
+$env = Env::createImmutable(__DIR__ . '/../'); // move up
 $env->load();
 
 $host = $_ENV['DB_HOST'];

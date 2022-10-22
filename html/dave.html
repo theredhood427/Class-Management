@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="header">
+            <h1>Edit Student</h1>
+        </div>
+        <div class="col-3">
+            <a type="button" href="../students/index.php" class="btn btn-primary btn-lg ms-2">Back</a>
+        </div> 
+    </div>
+</div> 
+<div class="table">   
+    <form method="POST" action="../students/update.php">
+        <input type="hidden" name="id" value="{{id}}"/>
+         <div class="form-group row">
+            <label for="first_name" class="col-sm-2 col-form-label">First Name:</label>
+            <div class="col-sm-4">
+            <input type="text" class="form-control" id="first_name" name="first_name" value="{{first_name}}" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="last_name" class="col-sm-2 col-form-label">Last Name:</label>
+            <div class="col-sm-4">
+            <input type="text" class="form-control" id="last_name" name="last_name" value="{{last_name}}" required>
+            </div>
+        </div>
+         <div class="form-group row">
+            <label for="student_number" class="col-sm-2 col-form-label">Student Number:</label>
+            <div class="col-sm-4">
+            <input type="text" class="form-control" id="student_number" name="student_number" value="{{student_number}}" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email Address:</label>
+            <div class="col-sm-4">
+            <input type="email" class="form-control" id="email" name="email" value="{{email}}" placeholder="email@sample.com" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="contact_number" class="col-sm-2 col-form-label">Contact:</label>
+            <div class="col-sm-4">
+            <input type="text" class="form-control" id="contact_number" name="contact_number" value="{{contact_number}}" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="program" class="col-sm-2 col-form-label">Program:</label>
+                <div class="col-sm-4">
+                    <select class="form-select" name="program" id="program" aria-label="Select Program">
+                        <option value="{{program}}" selected disabled hidden>{{program}}</option>
+                        <option value="BSIT"<?php echo ($Defaultselection == BSIT)?"selected":""; ?>BSIT</option>
+                        <option value="BMMA"<?php echo ($Defaultselection == BMMA)?"selected":""; ?>BMMA</option>
+                        <option value="BSCS"<?php echo ($Defaultselection == BSCS)?"selected":""; ?>BSCS</option>
+                    </select>
+                </div>
+            </div>
+        <div class="form-group row">
+            <div class="col-sm-4">
+            <button id="submit"  type="submit" class="btn btn-success mb-2">Submit Changes</button>
+            </div>
+        </div>
+    </form>
+</div>

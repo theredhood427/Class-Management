@@ -3,7 +3,19 @@
 include ("../init.php");
 use Models\Student;
 
-$student= new Student('Ron', 'Russelle', '14-0904-328', 'bangsil.ronrusselle@auf.edu.ph', '09159536887', 'BSIT');
-$student->setConnection($connection);
-$all_Students = $student->save();
-var_dump($student);
+$template = $mustache->loadTemplate('student/add.mustache');
+echo $template->render();
+
+try {
+    if (isset($_POST['first_name'])) {
+        $addStudent = new Student($_POST['first_name'], $_POST['last_name'], $_POST['student_number'], $_POST['email'], $_POST['contact_number'], $_POST['program']);
+        
+        $addStudent->setConnection($connection);
+        $addStudent->addStudent();
+        header('Location: index.php');
+    }
+}
+
+catch (Exception $e) {
+    error_log($e->getMessage());
+}

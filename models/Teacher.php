@@ -59,7 +59,7 @@ class Teacher
 		$this->connection = $connection;
 	}
 
-    public function save()
+    public function addTeacher()
 	{
 		try {
 			$sql = "INSERT INTO teachers SET first_name=:first_name, last_name=:last_name, employee_number=:employee_number, email=:email, contact_number=:contact_number";
@@ -78,10 +78,10 @@ class Teacher
 		}
 	}
 
-    public function update($first_name, $last_name, $employee_number, $email, $contact_number)
+	public function update($first_name, $last_name, $employee_number, $email, $contact_number)
 	{
 		try {
-			$sql = 'UPDATE students SET first_name=?, last_name=?, student_number=?, email=?, contact_number=?, program=? WHERE id = ?';
+			$sql = 'UPDATE teachers SET first_name=?, last_name=?, employee_number=?, email=?, contact_number=? WHERE teacher_id = ?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				$first_name,
@@ -105,7 +105,7 @@ class Teacher
     public function delete()
 	{
 		try {
-			$sql = 'DELETE FROM teachers WHERE id=?';
+			$sql = 'DELETE FROM teachers WHERE teacher_id=?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				$this->getId()
@@ -126,4 +126,39 @@ class Teacher
         }
 }
 
+public function fetchTeacher($id){
+	try {
+		$sql = 'SELECT * FROM teachers WHERE teacher_id=?';
+		$statement = $this->connection->prepare($sql);
+		$statement->execute([
+			$id
+		]);
+		$data = $statement->fetchAll();
+		return $data;
+	} catch (Exception $e) {
+		error_log($e->getMessage());
+	}
+}
+
+public function getById($id)
+    {
+        try {
+            $sql = 'SELECT * FROM teachers WHERE teacher_id=:teacher_id';
+            $statement = $this->connection->prepare($sql);
+            $statement->execute([
+                ':teacher_id' => $id
+            ]);
+
+            $row = $statement->fetch();
+
+            $this->id = $row['teacher_id'];
+            $this->first_name = $row['first_name'];
+            $this->last_name = $row['last_name'];
+			$this->employee_number = $row['employee_number'];
+            $this->email = $row['email'];
+            $this->contact_number = $row['contact_number'];
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+        }
+    }
 }

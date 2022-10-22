@@ -66,7 +66,7 @@ class Student
 		$this->connection = $connection;
 	}
 
-    public function save()
+    public function addStudent()
 	{
 		try {
 			$sql = "INSERT INTO students SET first_name=:first_name, last_name=:last_name, student_number=:student_number, email=:email, contact_number=:contact_number, program=:program";
@@ -135,5 +135,43 @@ class Student
             error_log($e->getMessage());
         }
 }
+public function fetchStudent($id){
+	try {
+		$sql = 'SELECT * FROM students WHERE id=?';
+		$statement = $this->connection->prepare($sql);
+		$statement->execute([
+			$id
+		]);
+		$data = $statement->fetchAll();
+		return $data;
+	} catch (Exception $e) {
+		error_log($e->getMessage());
+	}
+}
+
+public function getById($id)
+    {
+        try {
+            $sql = 'SELECT * FROM students WHERE id=:id';
+            $statement = $this->connection->prepare($sql);
+            $statement->execute([
+                ':id' => $id
+            ]);
+
+            $row = $statement->fetch();
+
+            $this->id = $row['id'];
+            $this->first_name = $row['first_name'];
+            $this->last_name = $row['last_name'];
+			$this->student_number = $row['student_number'];
+            $this->email = $row['email'];
+            $this->contact_number = $row['contact_number'];
+            $this->program = $row['program'];
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+        }
+    }
+
+
 
 }
