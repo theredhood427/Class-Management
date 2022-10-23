@@ -4,7 +4,7 @@ include "vendor/autoload.php";
 include "config/database.php";
 
 use Models\Connection;
-use Models\Class;
+use Models\Classes;
 use Models\Teacher;
 use Models\Student;
 

@@ -3,7 +3,7 @@
         'name' => 'user/pdc10_classes',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '11288829ea7eb27113e55589b1ad38a4421df603',
+        'reference' => '41e2e2e8abd5b7323f3a1f035a3923ae59590606',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -67,7 +67,7 @@
         'user/pdc10_classes' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '11288829ea7eb27113e55589b1ad38a4421df603',
+            'reference' => '41e2e2e8abd5b7323f3a1f035a3923ae59590606',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

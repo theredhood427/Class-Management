@@ -1,11 +1,11 @@
 <?php
 
 include ("../init.php");
-use Models\Class;
+use Models\Classes;
 
-$class= new Student('', '', '', '', '', '');
-$class->setConnection($connection);
-$all_classes = $class->getAll();
+$classes= new Classes('', '', '', '');
+$classes->setConnection($connection);
+$all_classes = $classes->showClasses();
 
 $template = $mustache->loadTemplate('classes/index.mustache');
 echo $template->render(compact('all_classes'));

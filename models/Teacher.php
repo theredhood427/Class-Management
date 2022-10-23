@@ -81,7 +81,7 @@ class Teacher
 	public function update($first_name, $last_name, $employee_number, $email, $contact_number)
 	{
 		try {
-			$sql = 'UPDATE teachers SET first_name=?, last_name=?, employee_number=?, email=?, contact_number=? WHERE teacher_id = ?';
+			$sql = 'UPDATE teachers SET first_name=?, last_name=?, employee_number=?, email=?, contact_number=? WHERE id = ?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				$first_name,
@@ -105,7 +105,7 @@ class Teacher
     public function delete()
 	{
 		try {
-			$sql = 'DELETE FROM teachers WHERE teacher_id=?';
+			$sql = 'DELETE FROM teachers WHERE id=?';
 			$statement = $this->connection->prepare($sql);
 			$statement->execute([
 				$this->getId()
@@ -128,7 +128,7 @@ class Teacher
 
 public function fetchTeacher($id){
 	try {
-		$sql = 'SELECT * FROM teachers WHERE teacher_id=?';
+		$sql = 'SELECT * FROM teachers WHERE id=?';
 		$statement = $this->connection->prepare($sql);
 		$statement->execute([
 			$id
@@ -143,15 +143,15 @@ public function fetchTeacher($id){
 public function getById($id)
     {
         try {
-            $sql = 'SELECT * FROM teachers WHERE teacher_id=:teacher_id';
+            $sql = 'SELECT * FROM teachers WHERE id=:id';
             $statement = $this->connection->prepare($sql);
             $statement->execute([
-                ':teacher_id' => $id
+                ':id' => $id
             ]);
 
             $row = $statement->fetch();
 
-            $this->id = $row['teacher_id'];
+            $this->id = $row['id'];
             $this->first_name = $row['first_name'];
             $this->last_name = $row['last_name'];
 			$this->employee_number = $row['employee_number'];

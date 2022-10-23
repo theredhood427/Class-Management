@@ -9,7 +9,7 @@ echo $template->render();
 try {
     if (isset($_POST['first_name'])) {
         $addStudent = new Student($_POST['first_name'], $_POST['last_name'], $_POST['student_number'], $_POST['email'], $_POST['contact_number'], $_POST['program']);
-        
+        //var_dump($_POST['first_name'], $_POST['last_name'], $_POST['student_number'], $_POST['email'], $_POST['contact_number'], $_POST['program']);
         $addStudent->setConnection($connection);
         $addStudent->addStudent();
         header('Location: index.php');
