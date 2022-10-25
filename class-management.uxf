@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>3</zoom_level><element><id>UMLClass</id><coordinates><x>230</x><y>228</y><w>144</w><h>87</h></coordinates><panel_attributes>Teachers
+<diagram program="umletino" version="15.0.0"><zoom_level>5</zoom_level><element><id>UMLClass</id><coordinates><x>115</x><y>300</y><w>240</w><h>145</h></coordinates><panel_attributes>Teachers
 --
 #teacher_id:int
 #first_name:string
@@ -14,7 +14,7 @@ addTeacher()
 deleteTeacher()
 updateTeacher(first_name, last_name, email, contact_number, employee_number)
 viewClasses(teacher_id)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>407</x><y>225</y><w>96</w><h>81</h></coordinates><panel_attributes>Classes
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>295</y><w>160</w><h>135</h></coordinates><panel_attributes>Classes
 --
 #class_id:int
 #name:string
@@ -28,7 +28,7 @@ deleteClass()
 updateClass(name,description,class_code,teacher_id)
 getById(class_id)
 showClassRoster(class_id)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>554</x><y>225</y><w>156</w><h>75</h></coordinates><panel_attributes>Students
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>655</x><y>295</y><w>260</w><h>125</h></coordinates><panel_attributes>Students
 --
 #id:int
 #first_name:string
@@ -44,7 +44,7 @@ updateStudent(first_name,last_name,student_number,email,contact_number,program)
 deleteStudent()
 getById(id)
 viewClasses(student_id)
-displayClasses(student_id)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>428</x><y>333</y><w>63</w><h>60</h></coordinates><panel_attributes>ClassRosters
+displayClasses(student_id)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>435</x><y>150</y><w>105</w><h>100</h></coordinates><panel_attributes>ClassRosters
 --
 #roster_id:int
 #class_code:string
@@ -55,4 +55,4 @@ displayClassRoster()
 viewRoster(class_code)
 getById(roster_id)
 addClassRoster()
-deleteClass()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>371</x><y>291</y><w>42</w><h>9</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>120;10;10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>488</x><y>297</y><w>81</w><h>63</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;190;250;190;250;10</additional_attributes></element><element><id>Relation</id><coordinates><x>458</x><y>303</y><w>48</w><h>36</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;100;10;10;140;10</additional_attributes></element></diagram>
+deleteClass()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>405</y><w>70</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>120;10;10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>535</x><y>205</y><w>165</w><h>95</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;310;10;310;170</additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>245</y><w>15</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element></diagram>

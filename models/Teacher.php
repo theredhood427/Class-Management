@@ -161,4 +161,18 @@ public function getById($id)
             error_log($e->getMessage());
         }
     }
+
+	public function viewClasses($employee_number){
+		try {
+            $sql = "SELECT * FROM teachers INNER JOIN classes on teachers.employee_id=classes.employee_id WHERE teachers.employee_id=:employee_id";
+            $statement = $this->connection->prepare($sql);
+			$statement->execute([
+				':employee_id' => $employee_id
+			]);
+            return $statement->fetchAll();
+        } catch (Exception $e) {
+            error_log($e->getMessage());
+        }
+	}
+
 }
