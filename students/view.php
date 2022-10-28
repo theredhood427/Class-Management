@@ -1,19 +1,20 @@
 <?php
-include ("../init.php");
+
+include "../init.php";
 use Models\Student;
-use Models\Classes;
-//
-$student_id = $_GET['id'];
-$student= new Student('', '', '', '', '', '');
+
+$id = $_GET['id']??null;
+
+$student = new Student('', '', '', '', '', '');
 $student->setConnection($connection);
-$student->getById($student_id);
-//
-$student_id= $student->getStudentNumber();
+$student->getById($id);
 $first_name = $student->getFirstName();
 $last_name = $student->getLastName();
-//
-$all_students = $student->viewClasses($id);
-//
+$student_number = $student->getStudentNumber();
+$studentClass = $student->viewClass();
+
+// var_dump($first_name, $last_name, $student_number, $studentClass);
+// exit();
+
 $template = $mustache->loadTemplate('student/view.mustache');
-echo $template->render((compact('all_students','first_name','last_name')));
-?>
+echo $template->render(compact('studentClass', 'student_number', 'first_name', 'last_name'));

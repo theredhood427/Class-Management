@@ -173,18 +173,17 @@ public function getById($id)
     }
 
 
-	public function viewClasses($student_number){
+	public function viewClass(){
 		try {
-            $sql = "SELECT * FROM students INNER JOIN classes on students.number_id=classes.number_id WHERE students.number_id=:number_id";
-            $statement = $this->connection->prepare($sql);
+			$sql = 'SELECT c.name, c.description, c.class_code FROM students AS s JOIN class_rosters AS cr ON cr.student_number = s.student_number JOIN classes AS c ON c.class_code = cr.class_code WHERE s.student_number=?;';
+			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				':number_id' => $number_id
+				$this->student_number
 			]);
-            return $statement->fetchAll();
-        } catch (Exception $e) {
-            error_log($e->getMessage());
-        }
+			$data = $statement->fetchAll();
+			return $data;
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
 	}
-
-
 }

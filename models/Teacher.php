@@ -162,17 +162,18 @@ public function getById($id)
         }
     }
 
-	public function viewClasses($employee_number){
+	public function viewClass(){
 		try {
-            $sql = "SELECT * FROM teachers INNER JOIN classes on teachers.employee_id=classes.employee_id WHERE teachers.employee_id=:employee_id";
-            $statement = $this->connection->prepare($sql);
+			$sql = 'SELECT * FROM classes WHERE employee_number=?';
+			$statement = $this->connection->prepare($sql);
 			$statement->execute([
-				':employee_id' => $employee_id
+				$this->employee_number
 			]);
-            return $statement->fetchAll();
-        } catch (Exception $e) {
-            error_log($e->getMessage());
-        }
+			$data = $statement->fetchAll();
+			return $data;
+		} catch (Exception $e) {
+			error_log($e->getMessage());
+		}
 	}
 
 }
